@@ -1,14 +1,16 @@
 <template>
-  <div class="home">
-    <h3>Home component</h3>
+  <div class="grid grid-cols-10 auto-rows-max">
+    <Sidebar />
+    <div class="col-span-8"></div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
+import Sidebar from '@/components/layout/Sidebar.vue'
 
 export default {
   name: 'Home',
-  components: {}
+  components: { Sidebar }
 }
 </script>
