@@ -4,30 +4,30 @@
             <img class="w-full" src="../../assets/img/skinflint-logo.svg" alt="Skinflint logo">
 
             <div class="flex flex-col mt-9 space-y-4">
-                <div class="flex flex-row">
+                <router-link :to="{ name: 'Home' }" class="flex flex-row">
                     <div class="w-7">
                         <svg class="stroke-current stroke-1 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" /></svg>
                     </div>
                     <span class="text-white text-lg ml-2">Dashboard</span>
-                </div>
-                <div class="flex flex-row">
+                </router-link>
+                <router-link :to="{ name: 'Wallets' }" class="flex flex-row">
                     <div class="w-7">
                         <svg class="stroke-current stroke-1 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" /></svg>
                     </div>
                     <span class="text-white text-lg ml-2">Wallets</span>
-                </div>
-                <div class="flex flex-row">
+                </router-link>
+                <router-link :to="{ name: 'History' }" class="flex flex-row">
                     <div class="w-7">
                         <svg class="stroke-current stroke-1 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                     </div>
                     <span class="text-white text-lg ml-2">History</span>
-                </div>
-                <div class="flex flex-row">
+                </router-link>
+                <router-link :to="{ name: 'Settings' }" class="flex flex-row">
                     <div class="w-7">
                         <svg class="stroke-current stroke-1 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" /></svg>
                     </div>
                     <span class="text-white text-lg ml-2">Settings</span>
-                </div>
+                </router-link>
             </div>
 
             <div class="flex flex-col content-center mt-9">

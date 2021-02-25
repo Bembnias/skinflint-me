@@ -1,7 +1,15 @@
 <template>
-  <router-view/>
+  <div class="grid grid-cols-10 auto-rows-max">
+    <Sidebar />
+    <div class="col-span-8">
+      <router-view/>
+    </div>
+  </div>
 </template>
 
-<style>
-
-</style>
+<script>
+import Sidebar from '@/components/layout/Sidebar.vue'
+export default {
+  components: { Sidebar }
+}
+</script>

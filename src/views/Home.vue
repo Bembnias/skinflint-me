@@ -1,16 +1,20 @@
 <template>
-  <div class="grid grid-cols-10 auto-rows-max">
-    <Sidebar />
-    <div class="col-span-8"></div>
-  </div>
+  <section class="h-screen grid grid-cols-12 grid-rows-6 gap-4 p-8">
+    <StatTabs />
+    <ChartTab />
+    <LatestTab />
+    <InputTabs />
+  </section>
 </template>
 
 <script>
-// @ is an alias to /src
-import Sidebar from '@/components/layout/Sidebar.vue'
+import StatTabs from '@/components/dashboard/StatTabs'
+import ChartTab from '@/components/dashboard/ChartTab'
+import LatestTab from '@/components/dashboard/LatestTab'
+import InputTabs from '@/components/dashboard/InputTabs'
 
 export default {
   name: 'Home',
-  components: { Sidebar }
+  components: { StatTabs, ChartTab, LatestTab, InputTabs }
 }
 </script>
