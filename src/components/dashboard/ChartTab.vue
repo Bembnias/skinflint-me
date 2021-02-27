@@ -1,5 +1,5 @@
 <template>
-  <div class="shadow-lg col-span-6 row-span-3 rounded-lg">4</div>
+  <div class="shadow-md col-span-6 row-span-3 rounded-lg">4</div>
 </template>
 
 <script>
