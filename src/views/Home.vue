@@ -3,7 +3,8 @@
     <StatTabs />
     <ChartTab />
     <LatestTab />
-    <InputTabs />
+    <IncomeInputTab />
+    <ExpenseInputTab />
   </section>
 </template>
 
@@ -11,10 +12,11 @@
 import StatTabs from '@/components/dashboard/StatTabs'
 import ChartTab from '@/components/dashboard/ChartTab'
 import LatestTab from '@/components/dashboard/LatestTab'
-import InputTabs from '@/components/dashboard/InputTabs'
+import IncomeInputTab from '@/components/dashboard/IncomeInputTab'
+import ExpenseInputTab from '@/components/dashboard/ExpenseInputTab'
 
 export default {
   name: 'Home',
-  components: { StatTabs, ChartTab, LatestTab, InputTabs }
+  components: { StatTabs, ChartTab, LatestTab, IncomeInputTab, ExpenseInputTab}
 }
 </script>
