@@ -44,6 +44,69 @@
       "amount": "48.99",
       "date": "9 mar 2021, 13:11",
       "id": 5
+    },
+    {
+      "type": "expense",
+      "category": "shopping",
+      "categoryIcon": "bxs-shopping-bag",
+      "name": "Monday shopping",
+      "amount": "39.29",
+      "date": "10 mar 2021, 10:55",
+      "id": 6
+    },
+    {
+      "type": "expense",
+      "category": "shopping",
+      "categoryIcon": "bxs-shopping-bag",
+      "name": "Monday shopping",
+      "amount": "39.29",
+      "date": "10 mar 2021, 10:55",
+      "id": 7
+    },
+    {
+      "type": "expense",
+      "category": "shopping",
+      "categoryIcon": "bxs-shopping-bag",
+      "name": "Monday shopping",
+      "amount": "39.29",
+      "date": "10 mar 2021, 10:55",
+      "id": 8
+    },
+    {
+      "type": "expense",
+      "category": "shopping",
+      "categoryIcon": "bxs-shopping-bag",
+      "name": "Monday shopping",
+      "amount": "39.29",
+      "date": "10 mar 2021, 10:55",
+      "id": 9
+    },
+    {
+      "type": "expense",
+      "category": "shopping",
+      "categoryIcon": "bxs-shopping-bag",
+      "name": "Monday shopping",
+      "amount": "39.29",
+      "date": "10 mar 2021, 10:55",
+      "id": 10
+    },
+    {
+      "type": "expense",
+      "category": "shopping",
+      "categoryIcon": "bxs-shopping-bag",
+      "name": "Monday shopping",
+      "amount": "39.29",
+      "date": "10 mar 2021, 10:55",
+      "id": 11
+    },
+    {
+      "type": "expense",
+      "category": "shopping",
+      "categoryIcon": "bxs-shopping-bag",
+      "name": "Monday shopping",
+      "amount": "39.29",
+      "date": "10 mar 2021, 10:55",
+      "id": 12
     }
   ],
   "categories": [
