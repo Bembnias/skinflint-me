@@ -1,27 +1,38 @@
 <template>
-  <div class="h-screen">
+  <div class="relative h-screen overflow-y-scroll pb-5">
+
     <h1 class="text-center text-gray-800 text-4xl pt-5 font-semibold">History</h1>
     <p class="text-center text-gray-500 text-xl pt-2">Your full time records history</p>
+    
     <div class="flex px-9 pt-5 w-1/2 mx-auto">
-      <LitepieDatepicker
-        userange
-        :formatter="formatter"
-        placeholder="Select date range"
-        v-model="dateValue"
-      ></LitepieDatepicker>
+      <div class="flex-1">
+        <LitepieDatepicker
+          userange
+          :formatter="formatter"
+          placeholder="Select date range"
+          v-model="dateValue"
+        ></LitepieDatepicker>
+      </div>
     </div>
-    <p @click="showDate" class="text-xl cursor-pointer text-center">Show date</p>
-    <div class="pt-5 overflow-y-scroll">
-      <HistoryRecord v-for="data in actions" :key="data.id" :data="data"/>
+
+    <div v-if="filteredActions.length" class="pt-5">
+      <HistoryRecord v-for="data in filteredActions" :key="data.id" :data="data"/>
     </div>
+    <div v-else class="text-center text-gray-300 absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2">
+      <p class="text-xl">No actions yet</p>
+      <i class='bx bx-message-square-x text-4xl'></i>
+    </div>
+
   </div>
 </template>
 
 <script>
-import { ref } from 'vue'
-import LitepieDatepicker from 'litepie-datepicker'
+import { computed, ref } from 'vue'
 import getActions from '@/composables/getActions'
 import HistoryRecord from '@/components/dashboard/HistoryRecord'
+
+import LitepieDatepicker from 'litepie-datepicker'
+import dayjs from 'dayjs'
 
 export default {
   components: { HistoryRecord, LitepieDatepicker },
@@ -29,6 +40,9 @@ export default {
     const { actions, error, load } = getActions()
 
     load()
+    
+    const isBetween = require('dayjs/plugin/isBetween')
+    dayjs.extend(isBetween)
 
     const dateValue = ref([])
     const formatter = ref({
@@ -36,10 +50,17 @@ export default {
       month: 'MMM'
     })
 
-    const showDate = () => {
-      console.log(dateValue.value)
-    }
-    return { actions, dateValue, formatter, showDate }
+    const filteredActions = computed(() => {
+      if (!dateValue.value.length) {
+        return actions.value
+      } else {
+        return actions.value.filter(item => {
+          return dayjs(item.date).isBetween(dateValue.value[0], dateValue.value[1], null, '[]')
+        })
+      }
+    })
+
+    return { filteredActions, dateValue, formatter }
   }
 }
 </script>

@@ -27,7 +27,7 @@ import { ref } from 'vue'
 import getCategories from '../../composables/getCategories'
 import addAction from '../../composables/addAction'
 
-import { DateTime } from 'luxon'
+import dayjs from 'dayjs'
 
 export default {
   setup() {
@@ -46,7 +46,7 @@ export default {
         categoryIcon: selectedCategory.value.categoryIcon,
         name: name.value,
         amount: parseFloat(amount.value).toFixed(2),
-        date: DateTime.now().toLocaleString(DateTime.DATETIME_MED)
+        date: dayjs().format('DD MMM YYYY, HH:mm')
       }
 
       addAction(newAction)

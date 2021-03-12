@@ -1,112 +1,49 @@
 {
   "actions": [
     {
-      "id": 1,
+      "type": "income",
+      "category": "gifts",
+      "categoryIcon": "bxs-gift",
+      "name": "Paysafecard",
+      "amount": "50.00",
+      "date": "11 Mar 2021, 11:23",
+      "id": 1
+    },
+    {
       "type": "expense",
       "category": "gifts",
       "categoryIcon": "bxs-gift",
       "name": "Amy's Birthday",
-      "amount": 29.99,
-      "date": "15 mar. 17.30"
+      "amount": "39.77",
+      "date": "11 Mar 2021, 11:24",
+      "id": 2
     },
     {
-      "id": 2,
+      "type": "expense",
+      "category": "shopping",
+      "categoryIcon": "bxs-shopping-bag",
+      "name": "Saturday's shopping",
+      "amount": "89.50",
+      "date": "11 Mar 2021, 11:24",
+      "id": 3
+    },
+    {
       "type": "income",
       "category": "paychecks",
       "categoryIcon": "bx-money",
       "name": "March Paycheck",
-      "amount": 2800,
-      "date": "10 mar. 11.00"
-    },
-    {
-      "id": 3,
-      "type": "expense",
-      "category": "shopping",
-      "categoryIcon": "bxs-shopping-bag",
-      "name": "Saturday shopping",
-      "amount": 66.4,
-      "date": "19 mar. 12.20"
-    },
-    {
-      "type": "income",
-      "category": "paychecks",
-      "categoryIcon": "bx-money",
-      "name": "Logo design",
-      "amount": "199.99",
-      "date": "9 mar 2021, 13:10",
+      "amount": "2800.00",
+      "date": "12 Mar 2021, 11:24",
       "id": 4
     },
     {
-      "type": "expense",
-      "category": "gifts",
-      "categoryIcon": "bxs-gift",
-      "name": "Women's Day",
-      "amount": "48.99",
-      "date": "9 mar 2021, 13:11",
+      "type": "income",
+      "category": "shopping",
+      "categoryIcon": "bxs-shopping-bag",
+      "name": "Bonus Card",
+      "amount": "200.00",
+      "date": "13 Mar 2021, 12:24",
       "id": 5
-    },
-    {
-      "type": "expense",
-      "category": "shopping",
-      "categoryIcon": "bxs-shopping-bag",
-      "name": "Monday shopping",
-      "amount": "39.29",
-      "date": "10 mar 2021, 10:55",
-      "id": 6
-    },
-    {
-      "type": "expense",
-      "category": "shopping",
-      "categoryIcon": "bxs-shopping-bag",
-      "name": "Monday shopping",
-      "amount": "39.29",
-      "date": "10 mar 2021, 10:55",
-      "id": 7
-    },
-    {
-      "type": "expense",
-      "category": "shopping",
-      "categoryIcon": "bxs-shopping-bag",
-      "name": "Monday shopping",
-      "amount": "39.29",
-      "date": "10 mar 2021, 10:55",
-      "id": 8
-    },
-    {
-      "type": "expense",
-      "category": "shopping",
-      "categoryIcon": "bxs-shopping-bag",
-      "name": "Monday shopping",
-      "amount": "39.29",
-      "date": "10 mar 2021, 10:55",
-      "id": 9
-    },
-    {
-      "type": "expense",
-      "category": "shopping",
-      "categoryIcon": "bxs-shopping-bag",
-      "name": "Monday shopping",
-      "amount": "39.29",
-      "date": "10 mar 2021, 10:55",
-      "id": 10
-    },
-    {
-      "type": "expense",
-      "category": "shopping",
-      "categoryIcon": "bxs-shopping-bag",
-      "name": "Monday shopping",
-      "amount": "39.29",
-      "date": "10 mar 2021, 10:55",
-      "id": 11
-    },
-    {
-      "type": "expense",
-      "category": "shopping",
-      "categoryIcon": "bxs-shopping-bag",
-      "name": "Monday shopping",
-      "amount": "39.29",
-      "date": "10 mar 2021, 10:55",
-      "id": 12
     }
   ],
   "categories": [
