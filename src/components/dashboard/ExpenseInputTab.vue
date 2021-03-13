@@ -16,7 +16,7 @@
 
             <input class="border-b" type="text" v-model="name" placeholder="Name" required>
 
-            <input class="border-b" type="number" step='0.01' v-model="amount" placeholder="Amount" required>
+            <input class="border-b" type="number" step='0.01' min="0" v-model="amount" placeholder="Amount" required>
 
             <input class="appearance-none bg-red-300 rounded-full text-white py-1" type="submit" value="Add">
         </form>
@@ -46,7 +46,7 @@ export default {
                 category: selectedCategory.value.category,
                 categoryIcon: selectedCategory.value.categoryIcon,
                 name: name.value,
-                amount: parseFloat(amount.value).toFixed(2),
+                amount: -parseFloat(amount.value).toFixed(2),
                 date: dayjs().format('DD MMM YYYY, HH:mm')
             }
 

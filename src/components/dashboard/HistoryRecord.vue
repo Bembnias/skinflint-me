@@ -10,7 +10,7 @@
 
         <p class="text-gray-400 mt-2"> {{data.date}} </p>
 
-        <p class="text-gray-400 mt-2"><span :class="txtColorCheck" class="font-semibold"> <span v-if="data.type === 'expense'">-</span>{{data.amount}} </span> USD </p>
+        <p class="text-gray-400 mt-2"><span :class="txtColorCheck" class="font-semibold"> {{data.amount}} </span> USD </p>
       </div>
   </div>
 </template>

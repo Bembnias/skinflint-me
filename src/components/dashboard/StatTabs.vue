@@ -2,7 +2,7 @@
 
   <div class="relative shadow-md col-span-4 row-span-1 rounded-lg overflow-hidden">
     <div class="text-center absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2">
-      <h3 class="font-semibold text-xl md:text-3xl 2xl:text-5xl text-gray-800">$8,240</h3>
+      <h3 class="font-semibold text-xl md:text-3xl 2xl:text-5xl text-gray-800">${{totalBudget}} </h3>
       <small class="text-gray-400 text-xs md:text-sm">Total Budget</small>
     </div>
   </div>
@@ -34,7 +34,24 @@
 </template>
 
 <script>
-export default {
+import { computed, ref, watch } from 'vue'
+import getActions from '../../composables/getActions'
 
+export default {
+  setup() {
+    const { actions, error, load } = getActions()
+
+    load()
+
+    const totalBudget = computed(() => {
+      let totalSum = 0
+      actions.value.map((item) => {
+        totalSum += parseFloat(item.amount)
+      })
+      return totalSum
+    })
+  
+    return { totalBudget }
+  }
 }
 </script>

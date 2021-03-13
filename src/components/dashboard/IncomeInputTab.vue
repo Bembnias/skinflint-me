@@ -15,7 +15,7 @@
 
       <input class="border-b" type="text" v-model="name" placeholder="Name" required>
 
-      <input class="border-b" type="number" step='0.01' v-model="amount" placeholder="Amount" required>
+      <input class="border-b" type="number" step='0.01' min="0" v-model="amount" placeholder="Amount" required>
 
       <input class="appearance-none bg-green-200 rounded-full text-white py-1" type="submit" value="Add">
     </form>

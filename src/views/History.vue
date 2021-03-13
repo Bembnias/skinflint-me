@@ -10,7 +10,7 @@
           userange
           :formatter="formatter"
           placeholder="Select date range"
-          v-model="dateValue"
+          v-model="dateRange"
         ></LitepieDatepicker>
       </div>
     </div>
@@ -44,23 +44,23 @@ export default {
     const isBetween = require('dayjs/plugin/isBetween')
     dayjs.extend(isBetween)
 
-    const dateValue = ref([])
+    const dateRange = ref([])
     const formatter = ref({
       date: 'DD MMM YYYY',
       month: 'MMM'
     })
 
     const filteredActions = computed(() => {
-      if (!dateValue.value.length) {
+      if (!dateRange.value.length) {
         return actions.value
       } else {
         return actions.value.filter(item => {
-          return dayjs(item.date).isBetween(dateValue.value[0], dateValue.value[1], null, '[]')
+          return dayjs(item.date).isBetween(dateRange.value[0], dateRange.value[1], null, '[]')
         })
       }
     })
 
-    return { filteredActions, dateValue, formatter }
+    return { filteredActions, dateRange, formatter }
   }
 }
 </script>
