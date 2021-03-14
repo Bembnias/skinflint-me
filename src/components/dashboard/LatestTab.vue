@@ -26,7 +26,7 @@ export default {
     load()
 
     const latestHistory = computed(() => {
-      return actions.value.slice(0, 5)
+      return actions.value.reverse().slice(0, 5)
     })
 
     return { latestHistory, error }

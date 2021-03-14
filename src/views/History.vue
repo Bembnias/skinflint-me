@@ -41,6 +41,7 @@ export default {
 
     load()
     
+    // Dayjs plugin for checking date range
     const isBetween = require('dayjs/plugin/isBetween')
     dayjs.extend(isBetween)
 

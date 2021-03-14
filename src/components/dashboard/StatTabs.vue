@@ -13,8 +13,8 @@
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
       </svg>
       <div class="text-center">
-        <h3 class="font-semibold text-xl md:text-3xl 2xl:text-5xl text-gray-800">$120</h3>
-        <small class="text-gray-400 text-xs md:text-sm">March Income</small>
+        <h3 class="font-semibold text-xl md:text-3xl 2xl:text-5xl text-gray-800">${{monthlyIncome}}</h3>
+        <small class="text-gray-400 text-xs md:text-sm">Monthly Income</small>
       </div>
     </div>
   </div>
@@ -25,8 +25,8 @@
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" />
       </svg>
       <div class="text-center">
-        <h3 class="font-semibold text-xl md:text-3xl 2xl:text-5xl text-gray-800">$90</h3>
-        <small class="text-gray-400 text-xs md:text-sm">March Expenses</small>
+        <h3 class="font-semibold text-xl md:text-3xl 2xl:text-5xl text-gray-800">${{monthlyExpenses}}</h3>
+        <small class="text-gray-400 text-xs md:text-sm">Monthly Expenses</small>
       </div>
     </div>
   </div>
@@ -37,11 +37,44 @@
 import { computed, ref, watch } from 'vue'
 import getActions from '../../composables/getActions'
 
+import dayjs from 'dayjs'
+
 export default {
   setup() {
     const { actions, error, load } = getActions()
 
     load()
+
+    const monthlyIncome = computed(() => {
+      let monthlySum = 0
+      // Check if record type is equal to 'income', then check if it's current month
+      const monthlyAmounts = actions.value.filter((item) => {
+        if (item.type === 'income') {
+          return dayjs(item.date).isSame(dayjs().format('DD MMM YYYY'), 'month')
+        }
+      })
+      // Update monthlySum variable by valid amounts
+      monthlyAmounts.map((item) => {
+        monthlySum += parseFloat(item.amount)
+      })
+      return monthlySum
+    })
+
+    const monthlyExpenses = computed(() => {
+      let monthlySum = 0
+      // Check if record type is equal to 'expense', then check if it's current month
+      const monthlyAmounts = actions.value.filter((item) => {
+        if (item.type === 'expense') {
+          return dayjs(item.date).isSame(dayjs().format('DD MMM YYYY'), 'month')
+        }
+      })
+      // Update monthlySum variable by valid amounts
+      monthlyAmounts.map((item) => {
+        monthlySum += parseFloat(item.amount)
+      })
+      // Change negative value to positive one
+      return Math.abs(monthlySum)
+    })
 
     const totalBudget = computed(() => {
       let totalSum = 0
@@ -51,7 +84,7 @@ export default {
       return totalSum
     })
   
-    return { totalBudget }
+    return { totalBudget, monthlyIncome, monthlyExpenses }
   }
 }
 </script>
