@@ -13,23 +13,18 @@
 </template>
 
 <script>
-import getActions from '../../composables/getActions'
-
 import { computed } from 'vue'
 import HistoryRecord from './HistoryRecord'
 
 export default {
+  props: ['actions'],
   components: { HistoryRecord },
-  setup() {
-    const { actions, error, load } = getActions()
-
-    load()
-
+  setup(props) {
     const latestHistory = computed(() => {
-      return actions.value.reverse().slice(0, 5)
+      return props.actions.reverse().slice(0, 5)
     })
 
-    return { latestHistory, error }
+    return { latestHistory}
   }
 }
 </script>

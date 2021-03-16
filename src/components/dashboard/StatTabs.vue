@@ -34,21 +34,17 @@
 </template>
 
 <script>
-import { computed, ref, watch } from 'vue'
-import getActions from '../../composables/getActions'
-
+import { computed } from 'vue'
 import dayjs from 'dayjs'
 
 export default {
-  setup() {
-    const { actions, error, load } = getActions()
-
-    load()
+  props: ['actions'],
+  setup(props) {
 
     const monthlyIncome = computed(() => {
       let monthlySum = 0
       // Check if record type is equal to 'income', then check if it's current month
-      const monthlyAmounts = actions.value.filter((item) => {
+      const monthlyAmounts = props.actions.filter((item) => {
         if (item.type === 'income') {
           return dayjs(item.date).isSame(dayjs().format('DD MMM YYYY'), 'month')
         }
@@ -63,7 +59,7 @@ export default {
     const monthlyExpenses = computed(() => {
       let monthlySum = 0
       // Check if record type is equal to 'expense', then check if it's current month
-      const monthlyAmounts = actions.value.filter((item) => {
+      const monthlyAmounts = props.actions.filter((item) => {
         if (item.type === 'expense') {
           return dayjs(item.date).isSame(dayjs().format('DD MMM YYYY'), 'month')
         }
@@ -78,7 +74,7 @@ export default {
 
     const totalBudget = computed(() => {
       let totalSum = 0
-      actions.value.map((item) => {
+      props.actions.map((item) => {
         totalSum += parseFloat(item.amount)
       })
       return totalSum
