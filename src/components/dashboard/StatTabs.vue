@@ -53,7 +53,7 @@ export default {
       monthlyAmounts.map((item) => {
         monthlySum += parseFloat(item.amount)
       })
-      return monthlySum
+      return monthlySum.toFixed(2)
     })
 
     const monthlyExpenses = computed(() => {
@@ -69,7 +69,7 @@ export default {
         monthlySum += parseFloat(item.amount)
       })
       // Change negative value to positive one
-      return Math.abs(monthlySum)
+      return Math.abs(monthlySum.toFixed(2))
     })
 
     const totalBudget = computed(() => {
@@ -77,7 +77,7 @@ export default {
       props.actions.map((item) => {
         totalSum += parseFloat(item.amount)
       })
-      return totalSum
+      return totalSum.toFixed(2)
     })
   
     return { totalBudget, monthlyIncome, monthlyExpenses }
