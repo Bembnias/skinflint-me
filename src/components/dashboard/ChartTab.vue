@@ -1,12 +1,10 @@
 <template>
-  <div class="shadow-md col-span-6 row-span-3 rounded-lg">
+  <div class="shadow-md col-span-12 md:col-span-6 row-span-2 md:row-span-3 rounded-lg overflow-hidden">
     <h5 class="mt-5 ml-9 mb-9 2xl:text-4xl font-semibold">Top Expense Categories</h5>
-      <div class="mx-auto w-full xl:w-10/12 2xl:w-8/12">
-        <div v-if="series">
-          <apexchart type="donut" :options="options" :series="series"></apexchart>
-        </div>
-        <div v-else>Loading data</div>
-      </div>
+    <div v-if="series" class="mx-auto w-full xl:w-10/12 2xl:w-8/12">
+      <apexchart type="donut" :options="options" :series="series"></apexchart>
+    </div>
+    <div v-else>Loading data</div>
   </div>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-    <div class="shadow-md col-span-6 row-span-2 rounded-lg">
+    <div class="shadow-md col-span-12 md:col-span-6 row-span-2 rounded-lg">
         <h5 class="mt-5 ml-9 xl:text-4xl font-semibold">New Expense</h5>
 
         <form class="grid gap-4 lg:grid-cols-2 lg:gap-7 lg:text-lg mx-9 my-5" @submit.prevent="handleSubmit">

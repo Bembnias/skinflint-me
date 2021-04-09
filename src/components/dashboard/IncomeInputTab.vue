@@ -1,5 +1,5 @@
 <template>
-  <div class="shadow-md col-span-6 row-span-2 rounded-lg">
+  <div class="shadow-md col-span-12 md:col-span-6 row-span-2 rounded-lg">
     <h5 class="mt-5 ml-9 xl:text-4xl font-semibold">New Income</h5>
     <form class="grid lg:grid-cols-2 lg:gap-7 lg:text-lg gap-4 mx-9 my-5" @submit.prevent="handleSubmit">
       <select class="appearance-none border-b" v-model="selectedCategory" required>

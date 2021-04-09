@@ -1,5 +1,5 @@
 <template>
-  <section class="h-screen grid grid-cols-12 grid-rows-6 gap-4 p-8">
+  <section class="component-mobile-height lg:h-screen grid grid-cols-12 grid-rows-6 gap-4 p-8 overflow-hidden">
     <StatTabs :actions="actions" />
     <ChartTab :actions="actions" />
     <LatestTab :actions="actions" />
@@ -16,6 +16,7 @@ import IncomeInputTab from '@/components/dashboard/IncomeInputTab'
 import ExpenseInputTab from '@/components/dashboard/ExpenseInputTab'
 
 import getActions from '@/composables/getActions'
+import { watchEffect } from 'vue'
 
 export default {
   name: 'Home',

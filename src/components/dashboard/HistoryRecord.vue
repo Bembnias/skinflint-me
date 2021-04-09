@@ -5,12 +5,12 @@
             <div :class="bgColorCheck" class="relative text-lg h-8 w-8 2xl:h-10 2xl:w-10 bg-red-300 rounded-full content-center">
                 <i :class="data.categoryIcon" class="bx text-white absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2"></i>
             </div>
-            <p class="ml-3 mt-2"> {{data.name}} </p>
+            <p class="ml-3 mt-2 hidden md:block"> {{data.name}} </p>
         </div>
 
-        <p class="text-gray-400 mt-2"> {{data.date}} </p>
+        <p class="text-gray-400 mt-2 text-sm lg:text-base"> {{data.date}} </p>
 
-        <p class="text-gray-400 mt-2"><span :class="txtColorCheck" class="font-semibold"> {{data.amount}} </span> USD </p>
+        <p class="text-gray-400 mt-2 text-sm lg:text-base"><span :class="txtColorCheck" class="font-semibold"> {{data.amount}} </span> USD </p>
       </div>
   </div>
 </template>

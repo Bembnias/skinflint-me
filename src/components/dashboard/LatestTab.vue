@@ -1,5 +1,5 @@
 <template>
-  <div class="container relative shadow-md col-span-6 row-span-3 rounded-lg overflow-y-auto">
+  <div class="container relative shadow-md col-span-12 md:col-span-6 row-span-3 rounded-lg overflow-y-auto">
     <h5 class="mt-5 ml-9 2xl:text-4xl font-semibold">Latest</h5>
     <div v-if="latestHistory.length" class="my-9">
       <HistoryRecord v-for="data in latestHistory" :key="data.id" :data="data"/>

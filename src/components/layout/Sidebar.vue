@@ -1,7 +1,7 @@
 <template>
-    <div class="col-span-2 h-screen bg-gradient-to-r from-indigo-900 to-indigo-800">
-        <div class="w-8/12 mx-auto mt-7">
-            <img class="w-full" src="../../assets/img/skinflint-logo.svg" alt="Skinflint logo">
+    <div class="mt-16 absolute z-50 w-full component-mobile-height lg:mt-0 lg:relative lg:col-span-2 lg:h-screen bg-gradient-to-r from-indigo-900 to-indigo-800">
+        <div class="w-1/2 lg:w-8/12 mx-auto mt-7">
+            <img class="hidden lg:block w-full" src="../../assets/img/skinflint-logo.svg" alt="Skinflint logo">
 
             <div class="flex flex-col mt-9 space-y-4">
                 <router-link :to="{ name: 'Home' }" class="flex flex-row">
