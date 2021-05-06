@@ -1,6 +1,6 @@
 <template>
   <nav class="lg:hidden flex justify-between items-center w-full h-16 space bg-gradient-to-r from-indigo-900 to-indigo-800">
-    <div class="w-1/4 ml-8">
+    <div class="w-1/3 ml-8">
         <img class="w-full" src="../../assets/img/skinflint-logo.svg" alt="Skinflint logo">
     </div>
     <i @click="handleClick" class='bx bx-menu burger cursor-pointer mr-7'></i>
