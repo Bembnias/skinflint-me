@@ -1,13 +1,15 @@
 <template>
   <form @submit.prevent="handleSubmit" class="w-2/3 md:w-1/2 lg:w-1/3 mx-auto text-center">
     <h3 class="text-3xl py-4">Sign up</h3>
-    <p class="bg-blue-600 text-white p-2 rounded-lg my-4 cursor-pointer">Sign up using Google account</p>
+    <p class="bg-blue-600 text-white p-2 rounded-lg my-4 cursor-pointer">Sign up using <span class="font-semibold">Google account</span></p>
 
     <div class="my-5 inline-flex w-full">
       <div class="inline-divider mt-2"></div>
-      <p class="mx-1 text-sm text-gray-500">Or sign up with email</p>
+      <p class="mx-1 text-sm text-gray-500 mx-auto">Or sign up with email</p>
       <div class="inline-divider mt-2"></div>
     </div>
+
+    <p v-if="error" class="border-2 border-red-500 p-2 rounded-lg my-4 w-full text-red-500 text-sm">{{error}}</p>
 
     <input type="text" class="border-b w-full p-2" placeholder="Name" v-model="name">
     <input type="email" class="border-b w-full p-2 mt-4" placeholder="Email" v-model="email">
@@ -24,17 +26,24 @@
 
 <script>
 import { ref } from 'vue'
+import useSignup from '../../composables/useSignup'
+import { useRouter } from 'vue-router'
+
 export default {
   setup() {
+    const { error, signup } = useSignup()
+    const router = useRouter()
+
     const name = ref('')
     const email = ref('')
     const password = ref('')
 
-    const handleSubmit = () => {
-      console.log(name.value, email.value, password.value)
+    const handleSubmit = async () => {
+      await signup(email.value, password.value, name.value)
+      !error.value && router.push({ name: 'Home' })
     }
     
-    return { name, email, password, handleSubmit }
+    return { name, email, password, handleSubmit, error }
   }
 }
 </script>

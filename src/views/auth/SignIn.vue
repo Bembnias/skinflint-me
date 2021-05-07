@@ -5,9 +5,11 @@
 
     <div class="my-5 inline-flex w-full">
       <div class="inline-divider mt-2"></div>
-      <p class="mx-1 text-sm text-gray-500">Or sign in with email</p>
+      <p class="mx-1 text-sm text-gray-500 mx-auto">Or sign in with email</p>
       <div class="inline-divider mt-2"></div>
     </div>
+
+    <p v-if="error" class="border-2 border-red-500 p-2 rounded-lg my-4 w-full text-red-500 text-sm">{{error}}</p>
 
     <input type="email" class="border-b w-full p-2 mt-4" placeholder="Email" v-model="email" required>
     <input type="password" class="border-b w-full p-2 mt-4 mb-2" placeholder="Password" v-model="password" required>
@@ -23,17 +25,23 @@
 
 <script>
 import { ref } from 'vue'
+import useLogin from '../../composables/useLogin'
+import { useRouter } from 'vue-router'
 
 export default {
   setup() {
+    const { error, login } = useLogin()
+    const router = useRouter()
+
     const email = ref('')
     const password = ref('')
 
-    const handleSubmit = () => {
-      console.log(email.value, password.value)
+    const handleSubmit = async () => {
+      await login(email.value, password.value)
+      !error.value && router.push({ name: 'Home' })
     }
     
-    return { email, password, handleSubmit }
+    return { email, password, handleSubmit, error }
   }
 }
 </script>
@@ -41,7 +49,7 @@ export default {
 <style scoped>
 
 .inline-divider {
-  width: 30%;
+  min-width: 30%;
   height: 1px;
   background-color: #E5E7EB;
 }

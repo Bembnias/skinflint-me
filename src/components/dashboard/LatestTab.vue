@@ -24,7 +24,7 @@ export default {
       return props.actions.reverse().slice(0, 5)
     })
 
-    return { latestHistory}
+    return { latestHistory }
   }
 }
 </script>

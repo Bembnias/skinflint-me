@@ -13,6 +13,7 @@
     "autoprefixer": "^9",
     "core-js": "^3.6.5",
     "dayjs": "^1.10.4",
+    "firebase": "^8.5.0",
     "json-server": "^0.16.3",
     "litepie-datepicker": "^1.0.3",
     "postcss": "^7",
