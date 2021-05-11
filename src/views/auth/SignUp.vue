@@ -1,7 +1,7 @@
 <template>
-  <form @submit.prevent="handleSubmit" class="w-2/3 md:w-1/2 lg:w-1/3 mx-auto text-center">
+  <form @submit.prevent="handleEmailSignup" class="w-2/3 md:w-1/2 lg:w-1/3 mx-auto text-center">
     <h3 class="text-3xl py-4">Sign up</h3>
-    <p class="bg-blue-600 text-white p-2 rounded-lg my-4 cursor-pointer">Sign up using <span class="font-semibold">Google account</span></p>
+    <p @click="openGoogleSignup" class="bg-blue-600 text-white p-2 rounded-lg my-4 cursor-pointer">Sign up using <span class="font-semibold">Google account</span></p>
 
     <div class="my-5 inline-flex w-full">
       <div class="inline-divider mt-2"></div>
@@ -31,19 +31,24 @@ import { useRouter } from 'vue-router'
 
 export default {
   setup() {
-    const { error, signup } = useSignup()
+    const { error, emailSignup, googleSignup } = useSignup()
     const router = useRouter()
 
     const name = ref('')
     const email = ref('')
     const password = ref('')
 
-    const handleSubmit = async () => {
-      await signup(email.value, password.value, name.value)
+    const handleEmailSignup = async () => {
+      await emailSignup(email.value, password.value, name.value)
+      !error.value && router.push({ name: 'Home' })
+    }
+
+    const openGoogleSignup = async () => {
+      await googleSignup()
       !error.value && router.push({ name: 'Home' })
     }
     
-    return { name, email, password, handleSubmit, error }
+    return { name, email, password, handleEmailSignup, openGoogleSignup, error }
   }
 }
 </script>
