@@ -44,6 +44,7 @@
                 <div class="flex mt-4 mx-auto w-8 h-8 border-2 border-white rounded-full content-center border-opacity-30 hover:border-opacity-100 cursor-pointer">
                     <svg class="mx-auto w-5 stroke-current stroke-1 text-white text-opacity-30" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" /></svg>
                 </div>
+                <p class="text-center text-white m-2">Hi, {{user.displayName}}!</p>
             </div>
             <div v-else class="mt-9">
                 <div class="mx-auto h-0.5 w-full bg-white bg-opacity-10"></div>

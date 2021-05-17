@@ -18,7 +18,7 @@
 
             <input class="border-b" type="number" step='0.01' min="0" v-model="amount" placeholder="Amount" required>
 
-            <input class="appearance-none bg-red-300 rounded-full text-white py-1" type="submit" value="Add">
+            <input class="appearance-none bg-red-300 rounded-full text-white py-1 cursor-pointer" type="submit" value="Add">
         </form>
     </div>
 </template>

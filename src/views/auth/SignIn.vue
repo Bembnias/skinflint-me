@@ -14,7 +14,10 @@
     <input type="email" class="border-b w-full p-2 mt-4" placeholder="Email" v-model="email" required>
     <input type="password" class="border-b w-full p-2 mt-4 mb-2" placeholder="Password" v-model="password" required>
 
-    <button class="bg-emerald text-white p-2 rounded-lg mt-5 mb-3 cursor-pointer w-full" type="submit">Sign in</button>
+    <button class="bg-emerald text-white p-2 rounded-lg mt-5 mb-3 cursor-pointer w-full" type="submit">
+      <span v-if="!isPending">Sign in</span>
+      <i v-else class='bx bx-loader text-lg animate-spin'></i>
+    </button>
 
     <router-link :to="{ name: 'SignUp' }" class="text-gray-500 text-sm">
       Don't have an account? 
@@ -33,7 +36,7 @@ import GoogleAuth from '@/components/auth/GoogleAuth.vue'
 export default {
   components: { GoogleAuth },
   setup() {
-    const { error, login } = useLogin()
+    const { error, isPending, login } = useLogin()
     const { googleSignup } = useSignup()
     const router = useRouter()
 
@@ -50,7 +53,7 @@ export default {
       !error.value && router.push({ name: 'Home' })
     }
     
-    return { email, password, handleSubmit, openGoogleSignIn, error }
+    return { email, password, handleSubmit, openGoogleSignIn, error, isPending }
   }
 }
 </script>

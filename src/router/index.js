@@ -6,10 +6,9 @@ import SignIn from '../views/auth/SignIn.vue'
 import SignUp from '../views/auth/SignUp.vue'
 import { projectAuth } from '../firebase/config'
 
-// Auth Guard
+// Auth Guards
 const requireAuth = (to, from, next) => {
   let user = projectAuth.currentUser
-  console.log('Auth guard cur user ', user)
   if (!user) {
     next({ name: 'SignIn' })
   } else {
@@ -17,6 +16,14 @@ const requireAuth = (to, from, next) => {
   }
 }
 
+const requireNoAuth = (to, from, next) => {
+  let user = projectAuth.currentUser
+  if (user) {
+    next({ name: 'Home' })
+  } else {
+    next()
+  }
+}
 
 const routes = [
   {
@@ -40,12 +47,14 @@ const routes = [
   {
     path: '/signin',
     name: 'SignIn',
-    component: SignIn
+    component: SignIn,
+    beforeEnter: requireNoAuth
   },
   {
     path: '/signup',
     name: 'SignUp',
-    component: SignUp
+    component: SignUp,
+    beforeEnter: requireNoAuth
   }
 ]
 
