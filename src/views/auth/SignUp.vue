@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="handleEmailSignup" class="w-2/3 md:w-1/2 lg:w-1/3 mx-auto text-center">
     <h3 class="text-3xl py-4">Sign up</h3>
-    <p @click="openGoogleSignup" class="bg-blue-600 text-white p-2 rounded-lg my-4 cursor-pointer">Sign up using <span class="font-semibold">Google account</span></p>
+    <GoogleAuth methodMsg="Sing up"/>
 
     <div class="my-5 inline-flex w-full">
       <div class="inline-divider mt-2"></div>
@@ -28,10 +28,12 @@
 import { ref } from 'vue'
 import useSignup from '../../composables/useSignup'
 import { useRouter } from 'vue-router'
+import GoogleAuth from '@/components/auth/GoogleAuth.vue'
 
 export default {
+  components: { GoogleAuth },
   setup() {
-    const { error, emailSignup, googleSignup } = useSignup()
+    const { error, emailSignup } = useSignup()
     const router = useRouter()
 
     const name = ref('')
@@ -42,13 +44,8 @@ export default {
       await emailSignup(email.value, password.value, name.value)
       !error.value && router.push({ name: 'Home' })
     }
-
-    const openGoogleSignup = async () => {
-      await googleSignup()
-      !error.value && router.push({ name: 'Home' })
-    }
     
-    return { name, email, password, handleEmailSignup, openGoogleSignup, error }
+    return { name, email, password, handleEmailSignup, error }
   }
 }
 </script>

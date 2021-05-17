@@ -3,7 +3,7 @@
         <div class="w-1/2 lg:w-8/12 mx-auto mt-7">
             <img class="hidden lg:block w-full" src="../../assets/img/skinflint-logo.svg" alt="Skinflint logo">
 
-            <div v-if="user" class="flex flex-col mt-9 space-y-4">
+            <div v-if="user !== null" class="flex flex-col mt-9 space-y-4">
                 <router-link :to="{ name: 'Home' }" class="flex flex-row">
                     <div class="w-7">
                         <svg class="stroke-current stroke-1 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" /></svg>
@@ -63,8 +63,6 @@ export default {
         const router = useRouter()
         const { error, logout } = useLogout()
         const { user } = getUser()
-
-        console.log(user)
 
         const handleLogout = async () => {
             await logout()

@@ -28,12 +28,14 @@ const routes = [
   {
     path: '/history',
     name: 'History',
-    component: History
+    component: History,
+    beforeEnter: requireAuth
   },
   {
     path: '/settings',
     name: 'Settings',
-    component: Settings
+    component: Settings,
+    beforeEnter: requireAuth
   },
   {
     path: '/signin',

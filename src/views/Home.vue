@@ -16,7 +16,6 @@ import IncomeInputTab from '@/components/dashboard/IncomeInputTab'
 import ExpenseInputTab from '@/components/dashboard/ExpenseInputTab'
 
 import getActions from '@/composables/getActions'
-import { watchEffect } from 'vue'
 
 export default {
   name: 'Home',

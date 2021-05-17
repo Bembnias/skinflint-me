@@ -1,7 +1,7 @@
 <template>
     <form @submit.prevent="handleSubmit" class="w-2/3 md:w-1/2 lg:w-1/3 mx-auto text-center">
     <h3 class="text-3xl py-4">Sign in</h3>
-    <p class="bg-blue-600 text-white p-2 rounded-lg my-4 cursor-pointer">Sign in using Google account</p>
+    <GoogleAuth methodMsg="Sing in"/>
 
     <div class="my-5 inline-flex w-full">
       <div class="inline-divider mt-2"></div>
@@ -26,11 +26,15 @@
 <script>
 import { ref } from 'vue'
 import useLogin from '../../composables/useLogin'
+import useSignup from '../../composables/useSignup'
 import { useRouter } from 'vue-router'
+import GoogleAuth from '@/components/auth/GoogleAuth.vue'
 
 export default {
+  components: { GoogleAuth },
   setup() {
     const { error, login } = useLogin()
+    const { googleSignup } = useSignup()
     const router = useRouter()
 
     const email = ref('')
@@ -40,8 +44,13 @@ export default {
       await login(email.value, password.value)
       !error.value && router.push({ name: 'Home' })
     }
+
+    const openGoogleSignIn = async () => {
+      await googleSignup()
+      !error.value && router.push({ name: 'Home' })
+    }
     
-    return { email, password, handleSubmit, error }
+    return { email, password, handleSubmit, openGoogleSignIn, error }
   }
 }
 </script>

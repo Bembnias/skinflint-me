@@ -29,23 +29,7 @@ const emailSignup = async (email, password, displayName) => {
   }
 }
 
-// Google signup (popup)
-// const openGoogleSignup = () => {
-//   isPending.value = true
-
-//   projectAuth.signInWithPopup(googleProvider).then(() => {
-//     router.push({ name: 'Home' })
-//     error.value = null
-//     isPending.value = false
-
-//   }).catch((err) => {
-//     console.log(err.message)
-//     error.value = err.message
-//     isPending.value = false
-
-//   })
-// }
-
+// Google signup with popup
 const googleSignup = async () => {
   error.value = null
   isPending.value = true
