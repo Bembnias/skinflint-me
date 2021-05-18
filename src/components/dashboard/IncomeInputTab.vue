@@ -3,7 +3,8 @@
     <h5 class="mt-5 ml-9 xl:text-4xl font-semibold">New Income</h5>
     <form class="grid lg:grid-cols-2 lg:gap-7 lg:text-lg gap-4 mx-9 my-5" @submit.prevent="handleSubmit">
       <select class="appearance-none border-b" v-model="selectedCategory" required>
-        <option value="" disabled>Type</option>
+        <option v-if="!categories.length" value="" disabled>Add new category in settings</option>
+        <option v-else value="" disabled>Category</option>
         <option 
           v-for="option in categories"
           :key="option" 

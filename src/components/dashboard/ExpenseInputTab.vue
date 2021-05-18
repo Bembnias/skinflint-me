@@ -4,7 +4,8 @@
 
         <form class="grid gap-4 lg:grid-cols-2 lg:gap-7 lg:text-lg mx-9 my-5" @submit.prevent="handleSubmit">
             <select class="appearance-none border-b" v-model="selectedCategory" required>
-                <option value="" disabled>Type</option>
+                <option v-if="!categories.length" value="" disabled>Add new category in settings</option>
+                <option v-else value="" disabled>Category</option>
                     <option 
                         v-for="option in categories"
                         :key="option" 
